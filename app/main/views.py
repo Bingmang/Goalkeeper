@@ -5,6 +5,7 @@ from . import main
 from .. import db
 from ..models import User, Permission
 from ..email import send_email
+from .forms import EditProfileForm
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -25,16 +26,12 @@ def edit_profile():
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
-        current_user.role = Role.query.get(form.role.data)
         current_user.location = form.location.data
         current_user.about_me = form.about_me.data
-        current_user.doublecheck = form.doublecheck.data
         db.session.add(current_user)
         flash('成功更新您的个人信息')
         return redirect(url_for('.user', user=current_user))
     form.username.data = current_user.username
-    form.role.data = current_user.role_id
     form.location.data = current_user.location
     form.about_me.data = current_user.about_me
-    form.doublecheck.data = current_user.doublecheck
     return render_template('edit_profile.html', form=form, user=current_user)

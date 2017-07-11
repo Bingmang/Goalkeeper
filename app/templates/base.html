@@ -115,9 +115,9 @@
                         <ul class="mobile-menu-links list-unstyled d-flex flex-column align-items-center">
                             <li class="mobile-menu-item">
                                 {% if current_user.is_authenticated %}
-                                <a href="{{url_for('goalkeeper.itemregistrate')}}">Add</a>
-                                <a href="{{url_for('goalkeeper.itemboard')}}">Goalkeeper</a>
-                                <a href="{{url_for('main.user')}}">Profile</a>
+                                <a href="{{url_for('goalkeeper.itemregistrate')}}">Add</a><br>
+                                <a href="{{url_for('goalkeeper.itemboard')}}">Goalkeeper</a><br>
+                                <a href="{{url_for('main.user')}}">Profile</a><br>
                                 <a href="{{url_for('auth.logout')}}">Logout</a>
 
                                 {% else %}
@@ -513,8 +513,8 @@
                         <div class="col-12 col-md-5 col-lg-5 test-infrastructure-image-wrapper text-center">
                             <img class="test-infrastructure-image img-fluid" src="/static/images/icon_test_infrastructure.svg" alt="Test your infrastructure"></div>
                         <div class="test-infrastructure-content col-12 col-md-5 col-lg-5 text-center text-md-left d-flex flex-column justify-content-center">
-                            <h3 class="feature-title">前端实现</h3>
-                            <p class="test-infrastructure-text">前端使用Jinja2动态渲染模板，极大方便了页面的扩展。</p></div>
+                            <h3 class="feature-title">项目介绍</h3>
+                            <p class="test-infrastructure-text">我们的项目名叫Goalkeeper——基于水平仪的防盗报警“云”装置，与以往的防盗报警装置不同。其特别之处在于该产品体现了“智慧城市”这一主题。</p></div>
                     </div>
                 </div>
             </section>
@@ -525,8 +525,8 @@
                             <div class="col-12 col-md-10 col-lg-10">
                                 <div class="row feature-content  justify-content-center">
                                     <div class="col-12 col-md-6 text-center text-md-left d-flex flex-column justify-content-center">
-                                        <h3 class="feature-title">数据库</h3>
-                                        <p class="feature-text">数据库使用关系型数据库SQLAlchemy，一款Python的轻量高效的数据映射模型。</p></div>
+                                        <h3 class="feature-title">项目目标</h3>
+                                        <p class="feature-text">该装置通过现代网络的服务器和手机APP与用户进行交互，目的在于将生活中贵重或是简单的物件连入互联网。通过该装置，无需在原有的各种物品上进行修改，即可十分便捷地将物品连入互联网。从而实现对物品的实时监控。</p></div>
                                     <div class="col-12 col-md-6 feature-image ">
                                         <img class="img-fluid" src="/static/images/icon_multiple_projects.svg" alt="Multiple projects in a single account"></div>
                                 </div>
@@ -540,8 +540,8 @@
                             <div class="col-12 col-md-10 col-lg-10">
                                 <div class="row feature-content feature-content--inverse justify-content-center">
                                     <div class="col-12 col-md-6 text-center text-md-left d-flex flex-column justify-content-center">
-                                        <h3 class="feature-title">后端架构</h3>
-                                        <p class="feature-text">后端使用Python Flask Web应用框架，WSGI工具箱采用Werkzeug，模板引擎使用Jinja2.</p></div>
+                                        <h3 class="feature-title">项目意义</h3>
+                                        <p class="feature-text">该项目的意义在于：无需对生活中的每个物品器件进行改造，在“智能家居”还未普及的时代，通过该装置可以很便捷地将不能联网的物件连入网络，并在服务器、手机、网页等终端进行实时监控。从而实现将生活不断过渡到物联网时代的保证。</p></div>
                                     <div class="col-12 col-md-6 feature-image feature-image--inverse">
                                         <img class="img-fluid" src="/static/images/icon_platform_support.svg" alt="Supports your platform"></div>
                                 </div>
@@ -555,8 +555,8 @@
                             <div class="col-12 col-md-10 col-lg-10">
                                 <div class="row feature-content  justify-content-center">
                                     <div class="col-12 col-md-6 text-center text-md-left d-flex flex-column justify-content-center">
-                                        <h3 class="feature-title">安全策略</h3>
-                                        <p class="feature-text">用户密码采用SM3单向杂凑函数，重大安全操作采用SHA256数字签名认证。</p></div>
+                                        <h3 class="feature-title">实现方法  </h3>
+                                        <p class="feature-text">Goalkeeper通过ADXL345模块进行3轴的加速度检测并转换成当前位置的角度值，并实时检测。当角度发生的变化大于预设的角度值时代表可能出现物品被移动的情况，则进行报警。通过移远M26模块进行联网，将报警状态上传至服务器，用户通过手机app客户端进行实时监控与操作。通过水平仪不断计算当前偏角，从而实现物品对自身状态的实时监控，使用户能够实时监控自己的物品状态，并对物品状态进行设置，以及实现物品的找回功能。</p></div>
                                     <div class="col-12 col-md-6 feature-image ">
                                         <img class="img-fluid" src="/static/images/icon_slack_zapier.svg" alt="Slack and Zapier integration"></div>
                                 </div>
@@ -579,10 +579,10 @@
                                     <div class="col-12 col-md-4 notify-form-item">
                                         <label class="sr-only" for="mce-PROVIDER">Provider</label>
                                         <select class="notify-form-select form-control custom-select" name="PROVIDER" id="mce-PROVIDER">
-                                            <option value="User">普通用户</option>
-                                            <option value="Moderator">管理员</option>
-                                            <option value="Administrator">网站管理员</option>
-                                            <option value="Anonymous" disabled selected>匿名用户</option>
+                                            <option value="User">普通物品</option>
+                                            <option value="Moderator">贵重物品</option>
+                                            <option value="Administrator">奢侈物品</option>
+                                            <option value="Anonymous" disabled selected>无价之宝</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-3 notify-form-item">
@@ -601,10 +601,10 @@
                             <div class="quote-wrapper">
                                 <div class="row justify-content-center">
                                     <blockquote class="quote-blockquote blockquote text-center">
-                                        <p class="quote-quote">"Our team is the BEST !"</p>
+                                        <p class="quote-quote">"没有什么是熬夜解决不了的"</p>
                                         <footer class="blockquote-footer">
-                                            <p class="quote-title">高鸣飞、李晓倪、张博、程子威、袁泉</p>
-                                            <p class="quote-note">(2016-2017-3 现代密码学实践)</p></footer>
+                                            <p class="quote-title">高鸣飞、张博、李彦星、袁泉</p>
+                                            <p class="quote-note">iCAN - 物联网创新大赛</p></footer>
                                     </blockquote>
                                 </div>
                             </div>
