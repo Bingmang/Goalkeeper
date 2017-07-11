@@ -172,11 +172,11 @@ def resend_confirmation():
     send_email(current_user.email, 'Confirm Your Account',
                'auth/email/confirm', user=current_user, token=token)
     flash('一封新的认证邮件已经发送到您的邮箱。')
-    return redirect(url_for('imanager.itemboard'))
+    return redirect(url_for('goalkeeper.itemboard'))
 
 @auth.route('/unconfirmed', methods=['GET', 'POST'])
 def unconfirmed():
     # 当前用户为匿名用户或当前用户已认证，直接返回主页
     if current_user.is_anonymous or current_user.confirmed:
-        return redirect(url_for('imanager.itemboard'))
+        return redirect(url_for('goalkeeper.itemboard'))
     return render_template('auth/unconfirmed.html')
