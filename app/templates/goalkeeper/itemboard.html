@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Goalkeeper - 物品管理{% endblock %}
+{% block page_content %}
+    <div id="features" class="features-section">
+        
+        <div class="container text-center">
+            <h2 class="section-title">{{ user.username }} 的物品仓库</h2>
+            <p class="intro">{% if user.name %}{{ user.name }}<br>{% endif %}</p>
+            {% if user.about_me %}
+            <p class="intro">关于我： {{ user.about_me }}</p>
+            {% endif %}
+            <p class="intro">最后一次登陆： {{ moment(user.last_seen).fromNow() }}.</p>
+            <div class="tabbed-area row">
+                <!-- Nav tabs -->
+                <div style="text-align: center">
+                    {% include 'imanager/_items.html' %}
+                </div>
+            </div><!--//tabbed-area-->
+
+        </div><!--//container-->
+    </div><!--//features-->
+{% endblock %}
+
+{% block page_content2 %}
+    <div id="features" class="features-section">
+        
+        <div class="container text-center">
+            <h2 class="section-title">{{ user.username }} 的记事本物品仓库</h2>
+            <p class="intro">{% if user.name %}{{ user.name }}<br>{% endif %}</p>
+            {% if user.about_me %}
+            <p class="intro">{{ user.about_me }}</p>
+            {% endif %}
+            <p class="intro">最后一次登陆： {{ moment(user.last_seen).fromNow() }}.</p>
+            <div class="tabbed-area row">
+                <!-- Nav tabs -->
+                <div style="text-align: center">
+                    {% include 'imanager/_items.html' %}
+                </div>
+            </div><!--//tabbed-area-->
+
+        </div><!--//container-->
+    </div><!--//features-->
+{% endblock %}

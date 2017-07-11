@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% set active_page = "edit_item" %}
+{% block title %}Goalkeeper - 编辑物品{% endblock %}
+
+{% block page_content %}
+    <h1 class="lead-title text-center text-lg-left">Goalkeeper - EDIT ITEMS</h1>
+    <p class="lead-subtitle text-center text-lg-left">编辑您的物品</p>
+
+    <div class="col-md-4" >
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}
+
+{% block page_content2 %}
+    <h1 class="lead-title text-center text-lg-left">Goalkeeper - EDIT ITEMS</h1>
+    <p class="lead-subtitle text-center text-lg-left">编辑您的物品</p>
+
+    <div class="col-md-4" >
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}

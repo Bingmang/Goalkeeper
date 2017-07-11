@@ -1,0 +1,5 @@
+H,  {{ user.username }},
+
+Welcome to Goalkeeper! Confirm Link:
+
+{{ url_for('auth.confirm', token=token, _external=True) }}
