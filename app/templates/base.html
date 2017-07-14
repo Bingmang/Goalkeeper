@@ -41,6 +41,7 @@
                 </a>
                 <ul class="navigation-links nav ml-auto align-items-center">
                     <li class="nav-item">
+                        <a class="navbar-button btn btn-secondary" href="/static/Goalkeeper.apk">Download APP</a>
                         {% if current_user.is_authenticated %}
                         <a class="navbar-button btn btn-secondary" href="{{url_for('goalkeeper.itemregistrate')}}">Add</a>
                         <a class="navbar-button btn btn-secondary" href="{{url_for('goalkeeper.itemboard')}}">Goalkeeper</a>
@@ -77,6 +78,7 @@
                 </a>
                 <ul class="navigation-links nav ml-auto align-items-center">
                     <li class="nav-item">
+                        <a class="navbar-button btn btn-secondary" href="/static/Goalkeeper.apk">Download APP</a>
                         {% if current_user.is_authenticated %}
                         <a class="navbar-button btn btn-secondary" href="{{url_for('goalkeeper.itemregistrate')}}">Add</a>
                         <a class="navbar-button btn btn-secondary" href="{{url_for('goalkeeper.itemboard')}}">Goalkeeper</a>
@@ -114,6 +116,7 @@
                     <div class="col-12">
                         <ul class="mobile-menu-links list-unstyled d-flex flex-column align-items-center">
                             <li class="mobile-menu-item">
+                                <a href="/static/Goalkeeper.apk">Download APP</a>
                                 {% if current_user.is_authenticated %}
                                 <a href="{{url_for('goalkeeper.itemregistrate')}}">Add</a><br>
                                 <a href="{{url_for('goalkeeper.itemboard')}}">Goalkeeper</a><br>
