@@ -40,3 +40,24 @@ def change_range(id_range):
             return '1'
         return forbidden('The Goalkeeper is NOT BELONGS to you! --By Goalkeeper')
     return forbidden('The Goalkeeper is NOT EXIST! --By Goalkeeper')
+
+@api.route('/add_item/', methods=['POST'])
+def add_item():
+    item_id = request.form.get('item_id','')
+    item_name = request.form.get('item_name','')
+    angle_range = request.form.get('angle_range','1')
+    if item_id == '':
+        return '0'
+    goalkeeper = Goalkeepers(item_id=item_id,item_name=item_name,angle_range=angle_range)
+    db.session.add(goalkeeper)
+    return '1'
+
+@api.route('/delete_item/<path:item_id>')
+def delete_item(item_id):
+    goalkeeper = Goalkeepers.query.filter_by(item_id=item_id).first()
+    if goalkeeper is not None:
+        if g.current_user == goalkeeper.owner:
+            db.session.delete(goalkeeper)
+            return '1'
+        return forbidden('The Goalkeeper is NOT BELONGS to you! --By Goalkeeper')
+    return forbidden('The Goalkeeper is NOT EXIST! --By Goalkeeper')
